@@ -1,0 +1,55 @@
+﻿@page "/embeds"
+
+@using noisyadmin.sitedata;
+
+@inject HttpClient Http
+
+<PageTitle>Embed List</PageTitle>
+
+<h1>Embed List</h1>
+
+
+
+@if (embeds == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>LinkUrl</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var embed in embeds)
+            {
+                <tr>
+                   
+                    <td>@embed.Id</td>
+                    <td>@embed.LinkUrl</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    private ISiteDataProvider _siteDataProvider;
+    public Embeds(ISiteDataProvider _siteDataProvider){
+        _siteDataProvider = _siteDataProvider;
+    }
+    private List<Embed>? embeds;
+
+    protected override async Task OnInitializedAsync()
+    {
+        embeds = await _siteDataProvider.GetEmbeds();
+    }
+
+  
+}
