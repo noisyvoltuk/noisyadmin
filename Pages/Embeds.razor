@@ -1,0 +1,49 @@
+﻿@page "/embeds"
+
+<PageTitle>Search Embeds</PageTitle>
+
+@using noisyadmin.Data
+
+@inject EmbedDbService EmbedService
+
+<h1>Embeds</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (embeds == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp. (C)</th>
+                <th>Temp. (F)</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var embed in embeds)
+            {
+                <tr>
+                    <td>..</td>
+                    <td>@embed.id</td>
+                    <td>@embed.LinkUrl</td>
+                    <td>..</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Embed>? embeds;
+
+    protected override async Task OnInitializedAsync()
+    {
+        embeds = await EmbedService.GetEmbeds();
+    }
+}

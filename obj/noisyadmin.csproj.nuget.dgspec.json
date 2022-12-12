@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/dad/Source/NoisyVoltSite/noisyadmin/noisyadmin.csproj": {}
+    "/home/dad/Source/NoisyVoltAdmin/noisyadmin/noisyadmin.csproj": {}
   },
   "projects": {
-    "/home/dad/Source/NoisyVoltSite/noisyadmin/noisyadmin.csproj": {
+    "/home/dad/Source/NoisyVoltAdmin/noisyadmin/noisyadmin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/dad/Source/NoisyVoltSite/noisyadmin/noisyadmin.csproj",
+        "projectUniqueName": "/home/dad/Source/NoisyVoltAdmin/noisyadmin/noisyadmin.csproj",
         "projectName": "noisyadmin",
-        "projectPath": "/home/dad/Source/NoisyVoltSite/noisyadmin/noisyadmin.csproj",
+        "projectPath": "/home/dad/Source/NoisyVoltAdmin/noisyadmin/noisyadmin.csproj",
         "packagesPath": "/home/dad/.nuget/packages/",
-        "outputPath": "/home/dad/Source/NoisyVoltSite/noisyadmin/obj/",
+        "outputPath": "/home/dad/Source/NoisyVoltAdmin/noisyadmin/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/dad/.nuget/NuGet/NuGet.Config"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Azure.Cosmos": {
+              "target": "Package",
+              "version": "[3.31.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

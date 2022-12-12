@@ -1,0 +1,36 @@
+﻿@page "/addembed"
+
+<PageTitle>Add Embed</PageTitle>
+
+@using noisyadmin.Data
+
+@inject EmbedDbService EmbedService
+
+<h1>Add Embed</h1>
+
+<EditForm Model="@newEmbed" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="linkUrl" @bind-Value="newEmbed.LinkUrl" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+
+    private Embed newEmbed = new();
+    private int currentCount = 0;
+
+    private void HandleValidSubmit()
+    {
+       
+        string resp = "";
+        Embed e = new Embed();
+        e.Subject = "a test";
+        e.LinkUrl = "https://texberber.com";
+       
+        resp = EmbedService.InsertEmbed(e).Result;
+      
+    }
+}
